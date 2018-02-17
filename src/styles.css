@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+.jumbotron{
+  padding: 40px;
+  border-radius: 5px;
+}
+
+.navbar-nav .active{
+  border-bottom: 2px solid orange;
+
+}

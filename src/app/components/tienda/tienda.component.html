@@ -1,0 +1,6 @@
+<h1>ESTO ES UNA TIENDA DE LIBROS</h1>
+
+<h2>soy componente tienda</h2>
+<input type="text" [(ngModel)]="nombreDelParque" (keyup)="mostrarNombre()">
+<app-parques [nombre]="nombreDelParque"
+              (pasarPadre)="verDatosPadre($event)"></app-parques>
