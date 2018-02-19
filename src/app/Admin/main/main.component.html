@@ -1,4 +1,25 @@
-<p>
-  {{title}}
-</p>
-<router-outlet></router-outlet>
+
+<div class="col-lg-4">
+
+  <h2>
+    {{title}}
+  </h2>
+  <div class="sidebar-admin" data-example-id="sample-nav-stacked">
+    <ul class="nav nav-pills nav-stacked nav-pill-stacked-example">
+      <li role="presentacion" routerLinkActive="active">
+        <a  routerLink="list">Listado</a>
+      </li>
+      <li role="presentacion" routerLinkActive="active">
+        <a  routerLink="add">Agregar</a>
+      </li>
+      <li role="presentacion" routerLinkActive="active">
+        <a  routerLink="edit">Editar</a>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+<div class="col-lg-8">
+  <router-outlet></router-outlet>
+</div>

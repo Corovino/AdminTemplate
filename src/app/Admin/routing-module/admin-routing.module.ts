@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AddComponent } from '../add/add.component';
@@ -9,21 +10,25 @@ import { MainComponent } from '../main/main.component';
 
 const  adminRoutes: Routes = [
   {
-    path:'admin-panel',
+    path:'',
     component: MainComponent,
     children:[
-        {path:'list', component: ListComponent},
+        {path:'', redirectTo:'list', pathMatch: 'full'},
+        {path:'list', component:ListComponent},
         {path:'edit', component: EditComponent},
         {path:'add', component: AddComponent},
-        {path:'', redirectTo:'list', pathMatch: 'full'}
+
     ]
-  }
+  },
+  {path:'', component: MainComponent},
+  {path:'**', component: MainComponent}
 ];
 
 
 
 @NgModule({
   imports: [
+    CommonModule,
     RouterModule.forChild(adminRoutes)
   ],
   exports: [

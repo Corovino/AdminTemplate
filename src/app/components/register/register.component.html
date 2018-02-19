@@ -1,0 +1,63 @@
+<div class="col-lg-6">
+  <h1>{{title}}</h1>
+  <div class="alert alert-success"  *ngIf="message">
+       Se ha registrado correctamente
+  </div>
+  <form action="" #registerForm="ngForm"  (ngSubmit)="onSubmit(); registerForm.reset();" class="col-lg-10">
+    <div>
+      <label for="nombre">Nombre</label>
+      <input type="text"
+             id="nombre"
+             name="name"
+             class="form-control"
+             #name="ngModel"
+             [(ngModel)]="user.name"
+             required>
+      <div *ngIf="!name.valid && name.touched">
+              El nombre es obligatorio
+      </div>
+    </div>
+    <div>
+      <label for="surname">Apellidos</label>
+      <input type="text"
+             id="surname"
+             name="surname"
+             class="form-control"
+             #surname="ngModel"
+             [(ngModel)]="user.surname"
+             required>
+      <div *ngIf="!surname.valid && surname.touched">
+        El Apellido es obligatorio
+      </div>
+    </div>
+    <div>
+      <label for="email">Correo electrónico</label>
+      <input type="email"
+             id="email"
+             name="email"
+             #email="ngModel"
+             [(ngModel)]="user.email"
+             class="form-control"
+             required>
+      <div *ngIf="!email.valid && email.touched">
+        El correo es obligatorio
+      </div>
+    </div>
+    <div>
+      <label for="password">Clave</label>
+      <input type="password"
+             id="password"
+             name="password"
+             class="form-control"
+             #password="ngModel"
+             [(ngModel)]="user.password"
+             required>
+      <div *ngIf="!password.valid && password.touched">
+        El correo es obligatorio
+      </div>
+    </div>
+    <div>
+      <input type="submit" value="Registrarse" class="btn btn-primary" [disabled]="!registerForm.form.valid">
+    </div>
+  </form>
+</div>
