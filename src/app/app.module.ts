@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 //import module
 
@@ -44,7 +45,8 @@ import { RegisterComponent } from './components/register/register.component';
     ReactiveFormsModule,
     ModuloEmailModule,
     AdminModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   providers: [
   ],

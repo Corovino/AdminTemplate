@@ -1,5 +1,11 @@
 <div class="col-lg-6">
   <h1>{{title}}</h1>
+  <div class="alert alert-success"  ngif="status == 'success">
+       se ha logueado correctamente
+  </div>
+  <div class="alert alert-danger"  ngif="status == 'error">
+    Error al tratar de ingresar
+  </div>
 
   <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-7">
     <div>
