@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
+import {  Router, ActivatedRoute, Params  } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit,  DoCheck {
   public identity;
 
 
- constructor( private _userService : UserService){
+ constructor( private _userService : UserService,
+              private _router: Router){
 
  }
   ngDoCheck(){
@@ -25,6 +27,13 @@ export class AppComponent implements OnInit,  DoCheck {
   ngOnInit(){
      this.identity =this._userService.getCurrentUser();
      console.log(this.identity);
+  }
+
+
+  logout(){
+     localStorage.clear();
+     this.identity = null;
+     this._router.navigate(['/']);
   }
 
   borrarContacto(){
