@@ -34,10 +34,10 @@
 
          <ul class="nav navbar-nav navbar-right" *ngIf="identity">
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{identity.message.name}} <span class="caret"></span> </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{identity.name}} <span class="caret"></span> </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="#">Mis datos</a>
+                <a routerLink="/edit-user">Mis datos</a>
                 <a href="#" (click)="logout()" >Salir</a>
               </li>
             </ul>

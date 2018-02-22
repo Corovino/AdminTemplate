@@ -1,12 +1,12 @@
 <div class="col-lg-6">
   <h1>{{title}}</h1>
   <div class="alert alert-success"  ngif="status == 'success">
-    se ha logueado correctamente
+    se ha actualizado la información correctamente
   </div>
   <div class="alert alert-danger"  ngif="status == 'error">
-    Error al tratar de ingresar
+    Error al tratar de actualizar
   </div>
-  <form action="" #registerForm="ngForm"  (ngSubmit)="onSubmit(); registerForm.reset();" class="col-lg-10">
+  <form #userEditForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-10">
     <div>
       <label for="nombre">Nombre</label>
       <input type="text"
@@ -17,7 +17,7 @@
              [(ngModel)]="user.name"
              required>
       <div *ngIf="!name.valid && name.touched">
-              El nombre es obligatorio
+        El nombre es obligatorio
       </div>
     </div>
     <div>
@@ -47,20 +47,17 @@
       </div>
     </div>
     <div>
-      <label for="password">Clave</label>
-      <input type="password"
-             id="password"
-             name="password"
-             class="form-control"
-             #password="ngModel"
-             [(ngModel)]="user.password"
-             required>
-      <div *ngIf="!password.valid && password.touched">
-        El correo es obligatorio
-      </div>
+      <label for="image_user">Foto Perfil</label>
+      <input type="file"
+             placeholder="subir imagen"
+             id="image_user"
+             (change)="fileChangeEvent($event);">
+
     </div>
     <div>
-      <input type="submit" value="Registrarse" class="btn btn-primary" [disabled]="!registerForm.form.valid">
+      <input type="submit" value="Registrarse" class="btn btn-primary" [disabled]="!userEditForm.form.valid">
     </div>
+
   </form>
+
 </div>

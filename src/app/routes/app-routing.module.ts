@@ -9,6 +9,7 @@ import { KeeperComponent } from '../components/keeper/keeper.component';
 import { ContactComponent } from '../components/contact/contact.component';
 import { LoginComponent } from '../components/login/login.component';
 import { RegisterComponent } from '../components/register/register.component';
+import { UserEditComponent } from '../components/user-edit/user-edit.component';
 
 const  appRoutes: Routes = [
   {path:'', redirectTo: 'home', pathMatch:'full'},
@@ -18,6 +19,7 @@ const  appRoutes: Routes = [
   {path:'contact', component:ContactComponent},
   {path:'keeper', component:KeeperComponent},
   {path:'register', component:RegisterComponent},
+  {path:'edit-user', component:UserEditComponent},
   {path:'login', component:LoginComponent},
   { path: 'admin', loadChildren: 'app/Admin/admin-module.module#AdminModule' },
   {path:'', component: HomeComponent},

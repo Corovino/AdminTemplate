@@ -22,6 +22,7 @@ import { HomeComponent } from './components/home/home.component';
 import { KeeperComponent } from './components/keeper/keeper.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 
@@ -35,7 +36,8 @@ import { RegisterComponent } from './components/register/register.component';
     HomeComponent,
     KeeperComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserEditComponent
 
   ],
   imports: [

@@ -20,13 +20,11 @@ export class AppComponent implements OnInit,  DoCheck {
 
  }
   ngDoCheck(){
-
      this.identity =this._userService.getCurrentUser();
   }
 
   ngOnInit(){
      this.identity =this._userService.getCurrentUser();
-     console.log(this.identity);
   }
 
 
