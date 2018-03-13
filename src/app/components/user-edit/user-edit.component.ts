@@ -27,6 +27,7 @@ export class UserEditComponent implements OnInit {
        this.token     = this._userService.getToken();
        this.user      = this.identity;
        this.url       = GLOBAL.url;
+       console.log('image user', this.user);
   }
 
   ngOnInit() {
@@ -47,10 +48,10 @@ export class UserEditComponent implements OnInit {
                       console.log('filesToUpload:',this.filesToUpload);
                       this._uploadService.makeFileRequest(`${this.url}upload-image/${this.user._id}`, [] , this.filesToUpload , this.token , 'image')
                         .then( ( result: any ) => {
-                              console.log('result', result.image);
+                              console.log('result', result);
                               this.user.image = result.image;
                               localStorage.setItem('identity', JSON.stringify(this.user) );
-                              console.log(this.user);
+                              console.log('user',this.user);
                         })
                   }
             },

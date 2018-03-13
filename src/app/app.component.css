@@ -1,0 +1,11 @@
+.img-user-nav
+div
+img {
+  width: 10%;
+  border-radius: 100%;
+  display: inline-block;
+  float: right;
+  line-height: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}

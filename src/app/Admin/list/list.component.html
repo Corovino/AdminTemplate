@@ -10,12 +10,12 @@
          </tr>
       </thead>
       <tbody>
-           <tr>
-             <td>Oso Panda</td>
-             <td>2012</td>
+           <tr *ngFor="let item of animal">
+             <td>{{item.name}}</td>
+             <td>{{item.year}}</td>
              <td>
-                <button class="btn btn-sm btn-success">Ver</button>
-                <button class="btn btn-sm btn-primary">Editar</button>
+                <a class="btn btn-sm btn-success" routerLink="/animal/{{item._id}}">Ver</a>
+                <a class="btn btn-sm btn-primary" routerLink="/admin/edit/{{item._id}}">Editar</a>
                 <button class="btn btn-sm btn-danger">Eliminar</button>
              </td>
 

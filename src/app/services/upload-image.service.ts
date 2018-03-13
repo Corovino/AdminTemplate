@@ -3,7 +3,7 @@ import { Http, Response, Headers } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { GLOBAL } from './globa';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
+
 
 
 
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class UploadImageService {
 
   public url: string;
-  //public formData: any;
+
 
   constructor( private _http: HttpClient ) {
 
@@ -22,7 +22,9 @@ export class UploadImageService {
 
 
   makeFileRequest( url: string, params: Array<string>, files: Array<File>, token: string, name: string){
+
       console.log('upload service', files);
+      console.log('url service', url);
       return new Promise( (resolve, reject) => {
           let formData: any  = new FormData();
           let xhr = new XMLHttpRequest();
@@ -34,9 +36,9 @@ export class UploadImageService {
           xhr.onreadystatechange = () => {
 
                   if(xhr.status == 200){
-                      console.log(xhr.response);
-                      //resolve(JSON.parse(xhr.response));
-                      resolve(xhr.response);
+                      console.log('up service', xhr.response);
+                      let data  = JSON.parse(xhr.response);
+                      resolve( data );
                   }else{
                       reject(xhr.response);
                   }

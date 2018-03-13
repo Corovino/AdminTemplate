@@ -1,23 +1,67 @@
-<h1>{{title}}</h1>
 
-<form action="">
+<div class="col-lg-10">
 
-     <div class="">
-       <label for="">Nombre</label>
-       <input type="text" class="form-control">
-     </div>
-     <div class="">
-       <label for="">Descripción</label>
-       <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-     </div>
-      <div class="">
-        <label for="">Año</label>
-        <input type="text" class="form-control">
-      </div>
-     <div class="">
+  <h1>{{title}}</h1>
 
-       <input type="submit"  value="Guardar"  class="btn btn-success">
-     </div>
+  <form #formAdd="ngForm"  (ngSubmit)="onSubmit()" >
+
+       <div class="">
+         <label for="">Nombre</label>
+         <input type="text"
+                class="form-control"
+                #name="ngModel"
+                name="name"
+                [(ngModel)]="animal.name"
+                required >
+         <div *ngIf="name.valid && name.touched" >
+              El nombre es obligatorio
+         </div>
+       </div>
+       <div class="">
+         <label for="">Descripción</label>
+         <textarea name=""
+                   id=""
+                   cols="30"
+                   rows="10"
+                   class="form-control"
+                   #description="ngModel"
+                   name="description"
+                   [(ngModel)]="animal.description"
+                   required ></textarea>
+         <div *ngIf="description.valid && description.touched">
+             La descripcion es obligatorio
+         </div>
+       </div>
+        <div class="">
+          <label for="">Año</label>
+          <input type="text"
+                 class="form-control"
+                 #año="ngModel"
+                 name="year"
+                 [(ngModel)]="animal.year"
+                 required >
+          <div *ngIf=""year.valid && year.touched>
+            El año  es obligatorio
+          </div>
+        </div>
+
+        <div class="animal-image" *ngIf="is_edit && animal.image">
+          <img class="img-user" src="{{ url +'image-animal/'+ animal.image}}" alt="">
+        </div>
 
 
-</form>
+        <div>
+          <label for="">Subir img animal</label>
+          <input type="file"
+                 placeholder="cargar img"
+                 (change)="fileChangeEvent($event)">
+        </div>
+
+       <div class="">
+
+         <input type="submit"  value="{{title}}"  class="btn btn-success">
+       </div>
+
+
+  </form>
+</div>

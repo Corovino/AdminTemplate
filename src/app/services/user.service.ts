@@ -75,7 +75,7 @@ export class UserService {
       httpOptions.headers.append('authentication', `${this.getToken()}`);
 
       let params = JSON.stringify(user_to_update);
-      return  this._http.put(`${this.url}update/${user_to_update._id}`, params, httpOptions);
+      return  this._http.put(`${this.url}update/${user_to_update.message._id}`, params, httpOptions);
   }
 
 

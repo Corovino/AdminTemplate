@@ -7,6 +7,9 @@
     Error al tratar de actualizar
   </div>
   <form #userEditForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-10">
+    <div *ngIf="user.message.image"  class="img-user">
+      <img [src]=" url+  'image-user/'+user.message.image" alt="" style="">
+    </div>
     <div>
       <label for="nombre">Nombre</label>
       <input type="text"
@@ -14,7 +17,7 @@
              name="name"
              class="form-control"
              #name="ngModel"
-             [(ngModel)]="user.name"
+             [(ngModel)]="user.message.name"
              required>
       <div *ngIf="!name.valid && name.touched">
         El nombre es obligatorio
@@ -27,7 +30,7 @@
              name="surname"
              class="form-control"
              #surname="ngModel"
-             [(ngModel)]="user.surname"
+             [(ngModel)]="user.message.surname"
              required>
       <div *ngIf="!surname.valid && surname.touched">
         El Apellido es obligatorio
@@ -39,7 +42,7 @@
              id="email"
              name="email"
              #email="ngModel"
-             [(ngModel)]="user.email"
+             [(ngModel)]="user.message.email"
              class="form-control"
              required>
       <div *ngIf="!email.valid && email.touched">

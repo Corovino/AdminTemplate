@@ -10,6 +10,7 @@ import { ContactComponent } from '../components/contact/contact.component';
 import { LoginComponent } from '../components/login/login.component';
 import { RegisterComponent } from '../components/register/register.component';
 import { UserEditComponent } from '../components/user-edit/user-edit.component';
+import { AnimalDetailComponent } from '../components/animal-detail/animal-detail.component';
 
 const  appRoutes: Routes = [
   {path:'', redirectTo: 'home', pathMatch:'full'},
@@ -20,6 +21,7 @@ const  appRoutes: Routes = [
   {path:'keeper', component:KeeperComponent},
   {path:'register', component:RegisterComponent},
   {path:'edit-user', component:UserEditComponent},
+  {path:'animal/:id', component:AnimalDetailComponent},
   {path:'login', component:LoginComponent},
   { path: 'admin', loadChildren: 'app/Admin/admin-module.module#AdminModule' },
   {path:'', component: HomeComponent},

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AdminRoutingModule } from './routing-module/admin-routing.module';
+import { AdminGuard } from '../services/admin.guard';
+import { UserService } from '../services/user.service';
 
 //import module
 
@@ -25,9 +27,9 @@ import { ListComponent } from './list/list.component';
     FormsModule,
     HttpModule,
     AdminRoutingModule
+
   ],
-  providers: [
-  ]
+  providers: [ AdminGuard, UserService ]
 
 })
 export class AdminModule { }

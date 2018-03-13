@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 import {  Router, ActivatedRoute, Params  } from '@angular/router';
+import { GLOBAL } from './services/globa';
 
 
 @Component({
@@ -13,18 +14,22 @@ export class AppComponent implements OnInit,  DoCheck {
   title = 'app';
   emailContacto: string;
   public identity;
+  public url: string;
 
 
  constructor( private _userService : UserService,
               private _router: Router){
-
+      this.url = GLOBAL.url;
  }
   ngDoCheck(){
      this.identity =this._userService.getCurrentUser();
+
+
   }
 
   ngOnInit(){
      this.identity =this._userService.getCurrentUser();
+     console.log('app identity',this.identity);
   }
 
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from '../../services/admin.guard';
 
 import { AddComponent } from '../add/add.component';
 import { EditComponent } from '../edit/edit.component';
@@ -12,10 +13,11 @@ const  adminRoutes: Routes = [
   {
     path:'',
     component: MainComponent,
+    canActivate: [AdminGuard],
     children:[
         {path:'', redirectTo:'list', pathMatch: 'full'},
         {path:'list', component:ListComponent},
-        {path:'edit', component: EditComponent},
+        {path:'edit/:id', component: EditComponent},
         {path:'add', component: AddComponent},
 
     ]
