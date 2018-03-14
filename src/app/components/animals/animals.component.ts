@@ -18,8 +18,7 @@ export class AnimalsComponent implements OnInit {
   public animal: Animal;
   public title: string;
   public url: string;
-  public identity;
-  public token;
+
 
 
   constructor(private _route: ActivatedRoute,
@@ -28,15 +27,23 @@ export class AnimalsComponent implements OnInit {
               private _animalService: AnimalService,
               private _UploadImageService: UploadImageService,
               ) {
-     this.title = 'Añadir';
+     this.title = 'Animales';
      this.animal = new Animal('', '', '', 2018 ,'','');
-     this.identity = this._userService.getCurrentUser();
-     this.token = this._userService.getToken();
      this.url = GLOBAL.url;
   }
 
   ngOnInit() {
-    console.log('animal c ready');
+    this.listAnimal();
+  }
+
+  listAnimal(){
+    let animals = this._animalService.getAnimals();
+
+    animals.subscribe( response => {
+
+      console.log(response.animals);
+      this.animal = response.animals;
+    },error => console.log(error))
   }
 
 }

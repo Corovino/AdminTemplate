@@ -14,12 +14,17 @@ export class ListComponent implements OnInit {
 
   title = 'List';
   public animal : Animal;
+  public token: string;
+  public busqueda : string;
 
 
   constructor(private _route: ActivatedRoute,
               private _router: Router,
               private _userService: UserService,
-              private _animalService: AnimalService) { }
+              private _animalService: AnimalService) {
+     this.token = this._userService.getToken();
+
+  }
 
   ngOnInit() {
 
@@ -34,6 +39,19 @@ export class ListComponent implements OnInit {
            console.log(response.animals);
            this.animal = response.animals;
        },error => console.log(error))
+  }
+
+
+  deleteAnimal(id) {
+     this._animalService.deleteAnimal(this.token, id).subscribe( response => {
+          if(!response.animal){
+            alert('No se puede eliminar el animal');
+          }
+
+          this.listAnimal();
+     },error => {
+        alert(error);
+     })
   }
 
 }
